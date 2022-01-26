@@ -1,0 +1,589 @@
+:root {
+  --background-color: #f6f6f6;
+  --txt-bg-color: white;
+  --accent1-color: #df7c7c;
+  --accent2-color: #7ccc7e; /* 78d47a */
+  --nonactive-color: rgb(184, 184, 184);
+  --borders-color: rgb(199, 199, 199);
+  --borders-color-light: rgb(233, 233, 233);
+  --borders-color-dark: rgb(126, 126, 126);
+  --font-color-h2: rgb(138, 2, 2);
+
+  --button-hover-background-color: #d5d9d9;
+
+  --shadow-box: rgb(0, 0, 0);
+
+  --ingredient-container-width: 70%;
+
+  --font-family-h1: "Style Script", cursive;
+  --font-family-h: "Cabin", sans-serif;
+  --font-family-p: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-family-p);
+}
+
+html {
+  display: table;
+  margin: auto;
+  /* overflow-x: hidden; */
+}
+
+body {
+  display: table-cell;
+  vertical-align: middle;
+  background: var(--background-color);
+  width: 100%;
+  /* overflow-y: scroll; */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#mainDiv {
+  margin: auto;
+  position: relative;
+  display: flex;
+  margin: auto;
+  flex-flow: column nowrap;
+  align-items: center;
+  max-width: 800px;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 100vh;
+}
+
+/* header - text Hero */
+#divTitle {
+  font-family: var(--font-family-h1);
+  font-size: 70px;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* main content */
+#contentWrapper {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  padding-bottom: 100px;
+}
+
+/* navigation menu */
+
+.button {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: var(--font-family-h);
+  width: 400px;
+  text-align: center;
+  vertical-align: middle;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+
+  background-color: var(--background-color);
+  /* */
+}
+#divButtons {
+  border-radius: 10px;
+
+  /* display: flex;
+  flex-direction: row; */
+  margin-bottom: 20px;
+}
+
+#btnDineOut {
+  border-radius: 0;
+  border-radius: 0 10px 10px 0;
+  border-top: solid 1px var(--borders-color);
+  border-bottom: solid 1px var(--borders-color);
+  border-right: solid 1px var(--borders-color);
+}
+
+#btnDineOut:hover,
+#btnCookAtHome:hover {
+  background-color: var(--txt-bg-color);
+  color: var(--accent1-color);
+  box-shadow: 0px 10px 20px -15px var(--shadow-box);
+  border: solid 2px var(--txt-bg-color);
+}
+
+#btnCookAtHome {
+  border-radius: 10px 0 0 10px;
+  border: solid 1px var(--borders-color);
+}
+
+/* search ingredient */
+#divIngredients {
+  display: none;
+  margin-top: 40px;
+}
+#inputContainer {
+  position: relative;
+  margin: auto;
+  display: flex;
+  width: var(--ingredient-container-width);
+  height: 40px;
+}
+#txtAddIngredient {
+  font-size: 18px;
+  width: 80%;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid var(--borders-color);
+  border-right: none;
+  padding: 0 10px;
+}
+#btnAddIngredient {
+  border-radius: 0 10px 10px 0;
+  border: var(--borders-color);
+  font-size: 18px;
+  width: 20%;
+  /* padding: 5px 35px 3px 25px; */
+  background: var(--accent2-color);
+  color: var(--txt-bg-color);
+  cursor: pointer;
+}
+#btnAddIngredient:hover {
+  background-color: var(--accent1-color);
+}
+#txtAddIngredient.error {
+  border: solid 1px red;
+}
+/* Drop Down Autocomplete */
+#autoCompleteBox {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 42px;
+  max-height: 160px;
+  background-color: var(--txt-bg-color);
+  overflow-x: scroll;
+  margin: 0;
+  /* padding: 6px; */
+  border: 1px solid var(--borders-color);
+  border-radius: 10px;
+}
+
+#autoCompleteBox p {
+  padding: 3px 6px;
+  margin: 0;
+  cursor: pointer;
+  /* border-top: solid 1px var(--borders-color); */
+}
+#autoCompleteBox p:hover {
+  background-color: var(--accent2-color);
+}
+
+/* Ingredients List */
+#ulIngredients {
+  /* display: flex;
+  flex-direction: column;
+  align-content: space-around; */
+  list-style-type: none;
+  width: var(--ingredient-container-width);
+  margin: 30px auto;
+  padding: 0;
+}
+.liIngredient {
+  background-color: var(--txt-bg-color);
+  padding-top: 5px;
+  padding-left: 25px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  /* font-size: medium; */
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 10px;
+  border: 1px solid var(--borders-color-light);
+  box-shadow: 0px 10px 7px -12px var(--shadow-box);
+}
+.liIngredient:hover {
+  border: 1px solid var(--borders-color);
+}
+.ingredientListItem {
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-box);
+}
+
+.removeItem {
+  float: right;
+  max-width: 100%;
+  height: auto;
+  width: 30px;
+  font-size: 24px;
+  text-align: center;
+  margin-right: 10px;
+}
+.removeItem:hover {
+  color: var(--accent1-color);
+  cursor: pointer;
+}
+
+/* Sorting */
+#divSlider {
+  display: flex;
+  flex-direction: row;
+  width: var(--ingredient-container-width);
+  margin: auto;
+  touch-action: none;
+}
+#rngFilter {
+  width: 100%;
+  background-color: var(--background-color);
+  /* padding-right: 5px; */
+}
+
+#lblRangeFilter {
+  border-radius: 50%;
+  margin-left: 6px;
+  background-color: var(--txt-bg-color);
+  border: 1px solid var(--borders-color);
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+}
+
+#divFilters {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin: 20px;
+  justify-content: center;
+}
+#divFilters .spaceBetween {
+  display: block;
+  width: 40px;
+}
+
+.chkFilter {
+  /* margin-right: 50px;
+  margin-bottom: 20px; */
+
+  border: 2px solid var(--txt-bg-color);
+  box-shadow: 0 0 0 1px var(--accent2-color);
+  appearance: none;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background-color: var(--txt-bg-color);
+  transition: all ease-in 0.2s;
+}
+.chkFilter:checked {
+  background-color: var(--accent2-color);
+}
+
+#divFindRecipesButton {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#btnFindRecipes {
+  border-radius: 10px;
+  border: 1px solid var(--txt-bg-color);
+  font-size: large;
+  height: 40px;
+  /* padding: 5px 35px 3px 25px; */
+  background: var(--accent2-color);
+  width: 30%;
+  color: var(--txt-bg-color);
+  cursor: pointer;
+}
+#btnFindRecipes:hover {
+  background-color: var(--accent1-color);
+}
+
+/* Content - Recipes */
+#divRecipes {
+  margin-top: 40px;
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.listOfTitles {
+  position: relative;
+  list-style-type: none;
+  background-color: var(--txt-bg-color);
+  width: 240px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--borders-color-light);
+  box-shadow: 0px 30px 20px -34px var(--shadow-box);
+}
+.listOfTitles img {
+  width: 200px;
+  height: 150px;
+  border: 1px solid var(--borders-color);
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.itemTitle {
+  margin: 16px 0 6px;
+  font-size: 16px;
+  color: var(--font-color-h2);
+}
+
+.itemLikes {
+  position: absolute;
+  bottom: 10px;
+  text-align: right;
+  margin-bottom: 6px;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.itemMissing,
+.itemUsed {
+  margin: 4px 0;
+}
+.itemMissing {
+  margin-bottom: 60px;
+}
+
+#btnDisplayRecipe {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+}
+/* Footer */
+#divLogo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+#divImg {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+#imgLogo {
+  max-width: 600px;
+  max-height: 600px;
+}
+#gitHubLogo,
+a {
+  margin: 10px auto 20px;
+  height: 20px;
+  width: 20px;
+}
+
+/* MODAL CSS */
+#fullRecipeContainer {
+  background-color: rgba(0, 0, 0, 0.8);
+  min-width: 100%;
+  height: 100vh;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  z-index: 3;
+}
+
+#modalContent {
+  background-color: white;
+  text-align: left;
+  /* padding: 20px; */
+  border-radius: 4px;
+  /* max-width: 800px; */
+
+  overflow-y: auto;
+}
+
+#modalContent h2 {
+  margin: 0 0 10px;
+}
+
+#modalContent ul {
+  max-width: 340px;
+}
+
+#modalContent ol {
+  margin-top: 0px;
+  padding-top: 10px;
+}
+
+#imgModal {
+  border-radius: 10px;
+  max-width: 400px;
+  height: 240px;
+}
+#modalInnerWrapper {
+  position: relative;
+  background-color: var(--txt-bg-color);
+  max-width: 800px;
+  border-radius: 10px;
+  padding: 40px;
+}
+#closeModal {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 42px;
+  color: #333;
+  background-color: var(--txt-bg-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: end;
+  margin-right: 15px;
+}
+
+#closeModal:hover {
+  color: #666;
+}
+.instructions {
+  display: inline-block;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+#panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/* @media (max-width: 650px) {
+  #divTitle {
+    margin-top: 30px;
+  }
+
+  #divButtons {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .button {
+    padding: 15px 40px;
+    border-radius: 11px;
+    font-size: large;
+    width: 90%;
+  }
+
+  #btnOrderOnline {
+    border-radius: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #btnDineOut {
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+
+  #btnCookAtHome {
+    border-radius: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #imgLogo {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  #divLogo {
+    margin-left: -30px;
+  }
+
+  #btnFindRecipes {
+    width: 100%;
+  }
+
+  #txtAddIngredient {
+    width: 90%;
+    border-radius: 10px;
+    min-width: 0;
+  }
+
+  #btnAddIngredient {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  #divTitle {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 430px) {
+  #divTitle {
+    font-size: 50px;
+  }
+} */
+
+@media (max-width: 480px) {
+  :root {
+    --ingredient-container-width: 90%;
+  }
+  #divTitle {
+    font-size: 40px;
+  }
+  #divButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #btnCookAtHome,
+  #btnDineOut {
+    height: 40px;
+    border-radius: 10px;
+    border: solid 1px var(--borders-color);
+    width: 90%;
+    text-align: center;
+    padding-top: 8px;
+  }
+  #btnFindRecipes {
+    width: 70%;
+  }
+  .listOfTitles {
+    width: 92%;
+  }
+  .listOfTitles img {
+    display: block;
+
+    margin: auto;
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 320px) {
+  #divTitle {
+    font-size: 30px;
+  }
+} */

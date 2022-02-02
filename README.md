@@ -5,7 +5,7 @@
 
 ### Live Link
 
-<https://sleepybookworm.github.io/WhatsForDinner/>
+<https://jasonpaff.github.io/WhatsForDinner//>
 
 ### Landing Page
 

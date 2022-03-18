@@ -5,13 +5,13 @@
 
 ### Live Link
 
-<https://sleepybookworm.github.io/WhatsForDinner/>
+<https://jasonpaff.github.io/WhatsForDinner//>
 
 ### Landing Page
 
 ![landing page](/images/whatsForDinner.png)
 
-### Featured Programs
+### Technology Stack
 
 Html, CSS, JavaScript
 
@@ -19,7 +19,7 @@ Html, CSS, JavaScript
 
 #### Jason Paff
 
-<https://github.com/SleepyBookworm>
+<https://github.com/JasonPaff>
 
 #### Serge Tolstov
 
